@@ -1,4 +1,4 @@
-package com.api.videogames.videogamesbackend.entities.models;
+package com.api.videogames.videogamesbackend.models.entities;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -6,17 +6,17 @@ import jakarta.persistence.Id;
 
 import java.io.Serializable;
 
-public class Servicio implements Serializable {
+public class Categoria implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String nombre;
 
-    public Servicio() {
+    public Categoria() {
     }
 
-    public Servicio(Integer id, String nombre) {
+    public Categoria(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }

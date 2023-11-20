@@ -1,4 +1,4 @@
-package com.api.videogames.videogamesbackend.entities.models;
+package com.api.videogames.videogamesbackend.models.entities;
 
 import jakarta.persistence.*;
 
