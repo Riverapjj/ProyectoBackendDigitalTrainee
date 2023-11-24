@@ -3,8 +3,10 @@ package com.api.videogames.videogamesbackend.models.entities;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Categoria implements Serializable {
     @Id
@@ -13,12 +15,16 @@ public class Categoria implements Serializable {
 
     private String nombre;
 
+    @OneToMany
+    private List<Videojuego> videojuegos;
+
     public Categoria() {
     }
 
-    public Categoria(Integer id, String nombre) {
+    public Categoria(Integer id, String nombre, List<Videojuego> videojuegos) {
         this.id = id;
         this.nombre = nombre;
+        this.videojuegos = videojuegos;
     }
 
     public Integer getId() {
@@ -35,5 +41,13 @@ public class Categoria implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public List<Videojuego> getVideojuegos() {
+        return videojuegos;
+    }
+
+    public void setVideojuegos(List<Videojuego> videojuegos) {
+        this.videojuegos = videojuegos;
     }
 }

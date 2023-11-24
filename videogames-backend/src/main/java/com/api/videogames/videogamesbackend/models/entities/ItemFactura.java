@@ -15,6 +15,7 @@ public class ItemFactura implements Serializable {
 
     private Integer total;
 
+    @ManyToOne
     private Factura factura;
     private String producto;
 

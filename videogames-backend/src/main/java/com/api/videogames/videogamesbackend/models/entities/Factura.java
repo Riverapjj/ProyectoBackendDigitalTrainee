@@ -1,11 +1,9 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Factura implements Serializable {
@@ -21,15 +19,19 @@ public class Factura implements Serializable {
 
     private Servicio servicio;
 
+    @OneToMany
+    private List<ItemFactura> itemFacturas;
+
     public Factura() {
     }
 
-    public Factura(Integer id, Integer total, Usuario usuario, Videojuego videojuego, Servicio servicio) {
+    public Factura(Integer id, Integer total, Usuario usuario, Videojuego videojuego, Servicio servicio, List<ItemFactura> itemFacturas) {
         this.id = id;
         this.total = total;
         this.usuario = usuario;
         this.videojuego = videojuego;
         this.servicio = servicio;
+        this.itemFacturas = itemFacturas;
     }
 
     public Integer getId() {
@@ -70,5 +72,13 @@ public class Factura implements Serializable {
 
     public void setServicio(Servicio servicio) {
         this.servicio = servicio;
+    }
+
+    public List<ItemFactura> getItemFacturas() {
+        return itemFacturas;
+    }
+
+    public void setItemFacturas(List<ItemFactura> itemFacturas) {
+        this.itemFacturas = itemFacturas;
     }
 }

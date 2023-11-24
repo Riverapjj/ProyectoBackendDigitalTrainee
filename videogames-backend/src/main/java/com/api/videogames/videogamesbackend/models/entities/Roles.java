@@ -3,8 +3,11 @@ package com.api.videogames.videogamesbackend.models.entities;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+import javax.management.relation.Role;
 import java.io.Serializable;
+import java.util.List;
 
 public class Roles implements Serializable {
     @Id
@@ -13,12 +16,16 @@ public class Roles implements Serializable {
 
     private String nombre;
 
+    @OneToMany
+    private List<Roles> roles;
+
     public Roles() {
     }
 
-    public Roles(Integer id, String nombre) {
+    public Roles(Integer id, String nombre, List<Roles> roles) {
         this.id = id;
         this.nombre = nombre;
+        this.roles = roles;
     }
 
     public Integer getId() {
@@ -35,5 +42,13 @@ public class Roles implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public List<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
     }
 }

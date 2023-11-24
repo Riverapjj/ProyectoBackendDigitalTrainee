@@ -3,8 +3,10 @@ package com.api.videogames.videogamesbackend.models.entities;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Usuario implements Serializable {
     @Id
@@ -19,15 +21,19 @@ public class Usuario implements Serializable {
 
     private Direccion direccion;
 
+    @OneToMany
+    private List<Factura> facturas;
+
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombre, String apellido, Roles roles, Direccion direccion) {
+    public Usuario(Integer id, String nombre, String apellido, Roles roles, Direccion direccion, List<Factura> facturas) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.roles = roles;
         this.direccion = direccion;
+        this.facturas = facturas;
     }
 
     public Integer getId() {
@@ -68,5 +74,13 @@ public class Usuario implements Serializable {
 
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
+    }
+
+    public List<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(List<Factura> facturas) {
+        this.facturas = facturas;
     }
 }

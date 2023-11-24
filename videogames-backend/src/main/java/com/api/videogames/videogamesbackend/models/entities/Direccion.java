@@ -1,11 +1,9 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Direccion implements Serializable {
     @Id
@@ -19,14 +17,18 @@ public class Direccion implements Serializable {
     @Column(name = "codigo_postal")
     private String codigoPostal;
 
+    @OneToMany
+    private List<Usuario> usuarios;
+
     public Direccion() {
     }
 
-    public Direccion(Integer id, String direccion, String departamento, String codigoPostal) {
+    public Direccion(Integer id, String direccion, String departamento, String codigoPostal, List<Usuario> usuarios) {
         this.id = id;
         this.direccion = direccion;
         this.departamento = departamento;
         this.codigoPostal = codigoPostal;
+        this.usuarios = usuarios;
     }
 
     public Integer getId() {
@@ -59,5 +61,13 @@ public class Direccion implements Serializable {
 
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 }
