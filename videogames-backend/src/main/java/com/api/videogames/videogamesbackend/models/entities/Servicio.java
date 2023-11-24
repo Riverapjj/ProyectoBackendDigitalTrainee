@@ -1,13 +1,12 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
 
+@Entity
+@Table(name = "servicios")
 public class Servicio implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +14,7 @@ public class Servicio implements Serializable {
 
     private String nombre;
 
-    @OneToMany
+    @OneToMany(mappedBy = "servicio")
     private List<Factura> facturas;
 
     public Servicio() {

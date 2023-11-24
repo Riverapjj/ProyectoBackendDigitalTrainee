@@ -1,13 +1,12 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
 
+@Entity
+@Table(name = "videojuegos")
 public class Videojuego implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,20 +16,28 @@ public class Videojuego implements Serializable {
 
     private Integer precio;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+    @ManyToOne
+    @JoinColumn(name = "plataforma_id")
+    private Plataforma plataforma;
 
     @OneToMany
+    @JoinColumn(name = "factura_id")
     private List<Factura> facturas;
 
     public Videojuego() {
     }
 
-    public Videojuego(Integer id, String nombre, Integer precio, Categoria categoria, List<Factura> facturas) {
+    public Videojuego(Integer id, String nombre, Integer precio, Categoria categoria,
+                      List<Factura> facturas, Plataforma plataforma) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.categoria = categoria;
         this.facturas = facturas;
+        this.plataforma = plataforma;
     }
 
     public Integer getId() {
@@ -71,5 +78,13 @@ public class Videojuego implements Serializable {
 
     public void setFacturas(List<Factura> facturas) {
         this.facturas = facturas;
+    }
+
+    public Plataforma getPlataforma() {
+        return plataforma;
+    }
+
+    public void setPlataforma(Plataforma plataforma) {
+        this.plataforma = plataforma;
     }
 }

@@ -16,6 +16,7 @@ public class ItemFactura implements Serializable {
     private Integer total;
 
     @ManyToOne
+    @JoinColumn(name = "factura_id")
     private Factura factura;
     private String producto;
 

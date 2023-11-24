@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Table(name = "facturas")
 public class Factura implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,13 +14,19 @@ public class Factura implements Serializable {
 
     private Integer total;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @ManyToOne
+    @JoinColumn(name = "videojuego_id")
     private Videojuego videojuego;
 
+    @ManyToOne
+    @JoinColumn(name = "servicio_id")
     private Servicio servicio;
 
-    @OneToMany
+    @OneToMany(mappedBy = "factura")
     private List<ItemFactura> itemFacturas;
 
     public Factura() {

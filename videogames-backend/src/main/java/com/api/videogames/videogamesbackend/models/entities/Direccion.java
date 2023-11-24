@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+@Entity
+@Table(name = "direcciones")
 public class Direccion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +19,7 @@ public class Direccion implements Serializable {
     @Column(name = "codigo_postal")
     private String codigoPostal;
 
-    @OneToMany
+    @OneToMany(mappedBy = "direccion")
     private List<Usuario> usuarios;
 
     public Direccion() {

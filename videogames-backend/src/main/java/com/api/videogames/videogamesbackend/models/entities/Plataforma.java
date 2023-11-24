@@ -1,13 +1,12 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
 
+@Entity
+@Table(name = "plataformas")
 public class Plataforma implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +18,7 @@ public class Plataforma implements Serializable {
 
     private String especificaciones;
 
-
-
-    @OneToMany
+    @OneToMany(mappedBy = "plataforma")
     private List<Videojuego> videojuegos;
 
     public Plataforma() {
