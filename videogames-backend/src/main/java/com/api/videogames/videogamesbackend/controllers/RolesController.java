@@ -2,6 +2,7 @@ package com.api.videogames.videogamesbackend.controllers;
 
 import com.api.videogames.videogamesbackend.models.entities.Roles;
 import com.api.videogames.videogamesbackend.servicios.implementaciones.RolesDAOImpl;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +22,8 @@ public class RolesController {
     }
 
     @GetMapping("/{id}")
-    public void listarPorId(@RequestBody Roles roles){
-        rolesServicio.save(roles);
+    public void listarPorId(@PathVariable Integer id){
+        rolesServicio.findById(id);
     }
 
     @PostMapping("/")
