@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface CategoriaDAO extends GenericDAO<Categoria> {
 
-    Optional<Categoria> findByName(String name);
+    Iterable<Categoria> findByName(String name);
 }

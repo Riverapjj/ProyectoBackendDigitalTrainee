@@ -14,7 +14,7 @@ public class CategoriaDAOImpl extends GenericoDAOImpl<Categoria, CategoriaReposi
     }
 
     @Override
-    public Optional<Categoria> findByName(String name) {
-        return Optional.empty();
+    public Iterable<Categoria> findByName(String name) {
+        return ((CategoriaRepository)repository).findByName(name);
     }
 }

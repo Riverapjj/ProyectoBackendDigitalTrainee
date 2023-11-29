@@ -16,7 +16,7 @@ public class PlataformaDAOImpl extends GenericoDAOImpl<Plataforma, PlataformaRep
     }
 
     @Override
-    public Optional<Plataforma> findByFabricante(String fabricante) {
-        return Optional.empty();
+    public Iterable<Plataforma> findByFabricante(String fabricante) {
+        return ((PlataformaRepository)repository).findByFabricante(fabricante);
     }
 }

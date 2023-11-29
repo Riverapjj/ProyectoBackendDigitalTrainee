@@ -16,12 +16,12 @@ public class UsuarioDAOImpl extends GenericoDAOImpl<Usuario, UsuariosRepository>
     }
 
     @Override
-    public Optional<Usuario> findByName(String name) {
-        return Optional.empty();
+    public Iterable<Usuario> findByName(String name) {
+        return ((UsuariosRepository)repository).findByName(name);
     }
 
     @Override
-    public Optional<Usuario> findByRole(String role) {
-        return Optional.empty();
+    public Iterable<Usuario> findByRole(String role) {
+        return ((UsuariosRepository)repository).findByRole(role);
     }
 }

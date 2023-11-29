@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface PlataformaDAO extends GenericDAO<Plataforma>{
 
-    Optional<Plataforma> findByFabricante(String fabricante);
+    Iterable<Plataforma> findByFabricante(String fabricante);
 }
