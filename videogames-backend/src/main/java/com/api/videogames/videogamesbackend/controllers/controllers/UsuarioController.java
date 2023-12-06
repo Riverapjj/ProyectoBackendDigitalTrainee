@@ -1,4 +1,4 @@
-package com.api.videogames.videogamesbackend.controllers;
+package com.api.videogames.videogamesbackend.controllers.controllers;
 
 import com.api.videogames.videogamesbackend.models.entities.Usuario;
 import com.api.videogames.videogamesbackend.servicios.implementaciones.UsuarioDAOImpl;

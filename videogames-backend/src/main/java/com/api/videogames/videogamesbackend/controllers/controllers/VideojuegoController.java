@@ -1,4 +1,4 @@
-package com.api.videogames.videogamesbackend.controllers;
+package com.api.videogames.videogamesbackend.controllers.controllers;
 
 import com.api.videogames.videogamesbackend.models.entities.Videojuego;
 import com.api.videogames.videogamesbackend.servicios.implementaciones.VideojuegoDAOImpl;

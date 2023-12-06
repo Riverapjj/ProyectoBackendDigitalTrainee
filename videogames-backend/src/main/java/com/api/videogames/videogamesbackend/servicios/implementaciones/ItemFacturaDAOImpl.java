@@ -5,8 +5,8 @@ import com.api.videogames.videogamesbackend.repositorios.ItemFacturaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ItemFacturaDAO extends GenericoDAOImpl<ItemFactura, ItemFacturaRepository> implements com.api.videogames.videogamesbackend.servicios.dao.ItemFacturaDAO {
-    public ItemFacturaDAO(ItemFacturaRepository repository) {
+public class ItemFacturaDAOImpl extends GenericoDAOImpl<ItemFactura, ItemFacturaRepository> implements com.api.videogames.videogamesbackend.servicios.dao.ItemFacturaDAO {
+    public ItemFacturaDAOImpl(ItemFacturaRepository repository) {
         super(repository);
     }
 }
