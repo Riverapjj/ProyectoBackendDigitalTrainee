@@ -1,5 +1,6 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -23,7 +24,7 @@ public class Usuario implements Serializable {
     @ManyToOne
     @JoinColumn(name = "direccion_id")
     private Direccion direccion;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Factura> facturas;
 

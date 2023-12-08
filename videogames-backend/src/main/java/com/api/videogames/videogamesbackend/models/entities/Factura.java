@@ -1,5 +1,6 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -26,6 +27,7 @@ public class Factura implements Serializable {
     @JoinColumn(name = "servicio_id")
     private Servicio servicio;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "factura")
     private List<ItemFactura> itemFacturas;
 

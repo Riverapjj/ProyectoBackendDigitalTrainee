@@ -1,5 +1,6 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import javax.management.relation.Role;
@@ -14,7 +15,7 @@ public class Roles implements Serializable {
     private Integer id;
 
     private String nombre;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "roles")
     private List<Usuario> usuarios;
 

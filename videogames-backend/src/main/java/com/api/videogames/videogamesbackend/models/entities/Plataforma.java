@@ -1,5 +1,6 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ public class Plataforma implements Serializable {
     private String fabricante;
 
     private String especificaciones;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "plataforma")
     private List<Videojuego> videojuegos;
 

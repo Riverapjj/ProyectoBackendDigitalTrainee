@@ -1,5 +1,6 @@
 package com.api.videogames.videogamesbackend.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ public class Categoria implements Serializable {
 
     private String nombre;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "categoria")
     private List<Videojuego> videojuegos;
 
