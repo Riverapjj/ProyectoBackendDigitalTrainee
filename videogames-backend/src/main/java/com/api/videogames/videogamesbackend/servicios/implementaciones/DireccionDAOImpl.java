@@ -13,4 +13,9 @@ public class DireccionDAOImpl extends GenericoDAOImpl<Direccion, DireccionReposi
     public DireccionDAOImpl(DireccionRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Iterable<Direccion> findByPostalCode(String codigoPostal) {
+        return ((DireccionRepository)repository).findByPostalCode(codigoPostal);
+    }
 }
