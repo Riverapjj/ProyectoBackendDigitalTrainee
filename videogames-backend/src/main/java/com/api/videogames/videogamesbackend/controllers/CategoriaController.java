@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/categoria")
@@ -20,17 +21,17 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public void listarPorId(@PathVariable Integer id){
-        categoriaServicio.findById(id);
+    public Optional<Categoria> listarPorId(@PathVariable Integer id){
+        return categoriaServicio.findById(id);
     }
 
     @PostMapping("/")
-    public void guardar(@RequestBody Categoria categoria){
-        categoriaServicio.save(categoria);
+    public Categoria guardar(@RequestBody Categoria categoria){
+        return categoriaServicio.save(categoria);
     }
 
     @PutMapping("/{id}")
-    public void actualizar(@RequestBody Categoria categoria){
-        categoriaServicio.save(categoria);
+    public Categoria actualizar(@RequestBody Categoria categoria){
+        return categoriaServicio.save(categoria);
     }
 }

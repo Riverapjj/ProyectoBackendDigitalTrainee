@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/rol")
@@ -22,17 +23,17 @@ public class RolesController {
     }
 
     @GetMapping("/{id}")
-    public void listarPorId(@PathVariable Integer id){
-        rolesServicio.findById(id);
+    public Optional<Roles> listarPorId(@PathVariable Integer id){
+        return rolesServicio.findById(id);
     }
 
     @PostMapping("/")
-    public void guardar(@RequestBody Roles roles){
-        rolesServicio.save(roles);
+    public Roles guardar(@RequestBody Roles roles){
+        return rolesServicio.save(roles);
     }
 
     @PutMapping("/{id}")
-    public void actualizar(@RequestBody Roles roles){
-        rolesServicio.save(roles);
+    public Roles actualizar(@RequestBody Roles roles){
+        return rolesServicio.save(roles);
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/direccion")
@@ -18,17 +19,17 @@ public class DireccionController {
     }
 
     @GetMapping("/{id}")
-    public void listarPorId(@PathVariable Integer id){
-        direccionServicio.findById(id);
+    public Optional<Direccion> listarPorId(@PathVariable Integer id){
+        return direccionServicio.findById(id);
     }
 
     @PostMapping("/")
-    public void guardar(@RequestBody Direccion direccion){
-        direccionServicio.save(direccion);
+    public Direccion guardar(@RequestBody Direccion direccion){
+        return direccionServicio.save(direccion);
     }
 
     @PutMapping("/{id}")
-    public void actualizar(@RequestBody Direccion direccion){
-        direccionServicio.save(direccion);
+    public Direccion actualizar(@RequestBody Direccion direccion){
+        return direccionServicio.save(direccion);
     }
 }

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/videojuego")
 public class VideojuegoController {
@@ -18,17 +20,17 @@ public class VideojuegoController {
     }
 
     @GetMapping("/{id}")
-    public void listarPorId(@PathVariable Integer id){
-        videojuegoServicio.findById(id);
+    public Optional<Videojuego> listarPorId(@PathVariable Integer id){
+        return videojuegoServicio.findById(id);
     }
 
     @PostMapping("/")
-    public void guardar(@RequestBody Videojuego videojuego){
-        videojuegoServicio.save(videojuego);
+    public Videojuego guardar(@RequestBody Videojuego videojuego){
+        return videojuegoServicio.save(videojuego);
     }
 
     @PutMapping("/{id}")
-    public void actualizar(@RequestBody Videojuego videojuego){
-        videojuegoServicio.save(videojuego);
+    public Videojuego actualizar(@RequestBody Videojuego videojuego){
+        return videojuegoServicio.save(videojuego);
     }
 }

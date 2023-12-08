@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -19,17 +20,17 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public void listarPorId(@PathVariable Integer id){
-        usuarioServicio.findById(id);
+    public Optional<Usuario> listarPorId(@PathVariable Integer id){
+        return usuarioServicio.findById(id);
     }
 
     @PostMapping("/")
-    public void guardar(@RequestBody Usuario usuario){
-        usuarioServicio.save(usuario);
+    public Usuario guardar(@RequestBody Usuario usuario){
+        return usuarioServicio.save(usuario);
     }
 
     @PutMapping("/{id}")
-    public void actualizar(@RequestBody Usuario usuario){
-        usuarioServicio.save(usuario);
+    public Usuario actualizar(@RequestBody Usuario usuario){
+        return usuarioServicio.save(usuario);
     }
 }

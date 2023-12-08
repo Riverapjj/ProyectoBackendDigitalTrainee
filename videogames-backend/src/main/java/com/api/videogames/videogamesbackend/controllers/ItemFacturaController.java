@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/item-factura")
@@ -19,17 +20,17 @@ public class ItemFacturaController {
     }
 
     @GetMapping("/{id}")
-    public void listarPorId(@PathVariable Integer id){
-        itemFacturaServicio.findById(id);
+    public Optional<ItemFactura> listarPorId(@PathVariable Integer id){
+        return itemFacturaServicio.findById(id);
     }
 
     @PostMapping("/")
-    public void guardar(@RequestBody ItemFactura itemFactura){
-        itemFacturaServicio.save(itemFactura);
+    public ItemFactura guardar(@RequestBody ItemFactura itemFactura){
+        return itemFacturaServicio.save(itemFactura);
     }
 
     @PutMapping("/{id}")
-    public void actualizar(@RequestBody ItemFactura itemFactura){
-        itemFacturaServicio.save(itemFactura);
+    public ItemFactura actualizar(@RequestBody ItemFactura itemFactura){
+        return itemFacturaServicio.save(itemFactura);
     }
 }
