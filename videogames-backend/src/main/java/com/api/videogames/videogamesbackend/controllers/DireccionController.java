@@ -12,7 +12,6 @@ import java.util.List;
 public class DireccionController {
     @Autowired
     DireccionDAOImpl direccionServicio;
-
     @GetMapping("/")
     public List<Direccion> listar(){
         return (List<Direccion>) direccionServicio.findAll();
