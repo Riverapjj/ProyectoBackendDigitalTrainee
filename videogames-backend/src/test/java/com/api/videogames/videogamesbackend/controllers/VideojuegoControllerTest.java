@@ -1,9 +1,9 @@
 package com.api.videogames.videogamesbackend.controllers;
 
-import com.api.videogames.videogamesbackend.repositorios.RolesRepository;
 import com.api.videogames.videogamesbackend.repositorios.ServicioRepository;
-import com.api.videogames.videogamesbackend.servicios.dao.RolesDAO;
+import com.api.videogames.videogamesbackend.repositorios.VideojuegoRepository;
 import com.api.videogames.videogamesbackend.servicios.dao.ServicioDAO;
+import com.api.videogames.videogamesbackend.servicios.dao.VideojuegoDAO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,22 +13,23 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-class ServicioControllerTest {
+class VideojuegoControllerTest {
+
     @MockBean
-    ServicioRepository servicioRepository;
+    VideojuegoRepository videojuegoRepository;
 
     @Autowired
-    ServicioDAO servicioDAO;
+    VideojuegoDAO videojuegoDAO;
     @Test
     void listar() {
-        servicioDAO.findAll();
+        videojuegoDAO.findAll();
 
-        verify(servicioRepository).findAll();
+        verify(videojuegoRepository).findAll();
     }
 
     @Test
     void listarPorId() {
-        servicioDAO.findById(1);
-        verify(servicioRepository).findById(1);
+        videojuegoDAO.findById(1);
+        verify(videojuegoRepository).findById(1);
     }
 }

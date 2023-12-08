@@ -1,8 +1,8 @@
 package com.api.videogames.videogamesbackend.controllers;
 
-import com.api.videogames.videogamesbackend.repositorios.RolesRepository;
+import com.api.videogames.videogamesbackend.repositorios.ItemFacturaRepository;
 import com.api.videogames.videogamesbackend.repositorios.ServicioRepository;
-import com.api.videogames.videogamesbackend.servicios.dao.RolesDAO;
+import com.api.videogames.videogamesbackend.servicios.dao.ItemFacturaDAO;
 import com.api.videogames.videogamesbackend.servicios.dao.ServicioDAO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,22 +13,23 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-class ServicioControllerTest {
+class ItemFacturaControllerTest {
+
     @MockBean
-    ServicioRepository servicioRepository;
+    ItemFacturaRepository itemFacturaRepository;
 
     @Autowired
-    ServicioDAO servicioDAO;
+    ItemFacturaDAO itemFacturaDAO;
     @Test
     void listar() {
-        servicioDAO.findAll();
+        itemFacturaDAO.findAll();
 
-        verify(servicioRepository).findAll();
+        verify(itemFacturaRepository).findAll();
     }
 
     @Test
     void listarPorId() {
-        servicioDAO.findById(1);
-        verify(servicioRepository).findById(1);
+        itemFacturaDAO.findById(1);
+        verify(itemFacturaRepository).findById(1);
     }
 }
