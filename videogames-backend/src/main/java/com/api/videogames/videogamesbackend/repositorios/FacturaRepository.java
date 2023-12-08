@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface FacturaRepository extends CrudRepository<Factura, Integer> {
     @Query("select d from Factura d where d.id = ?1")
-    Iterable<Factura> findById(String factiraId);
+    Iterable<Factura> findById(String facturaId);
 }
