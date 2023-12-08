@@ -29,13 +29,7 @@ class RolesControllerTest {
 
     @Test
     void listarPorId() {
-    }
-
-    @Test
-    void guardar() {
-    }
-
-    @Test
-    void actualizar() {
+        rolesDAO.findById(1);
+        verify(rolesRepository).findById(1);
     }
 }

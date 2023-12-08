@@ -29,13 +29,7 @@ class DireccionControllerTest {
 
     @Test
     void listarPorId() {
-    }
-
-    @Test
-    void guardar() {
-    }
-
-    @Test
-    void actualizar() {
+        direccionDAO.findById(1);
+        verify(direccionRepository).findById(1);
     }
 }
