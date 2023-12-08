@@ -33,4 +33,9 @@ public class UsuarioController {
     public Usuario actualizar(@RequestBody Usuario usuario){
         return usuarioServicio.save(usuario);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        usuarioServicio.deleteById(id);
+    }
 }

@@ -33,4 +33,8 @@ public class FacturaController {
     public Factura actualizar(@RequestBody Factura factura){
         return facturaServicio.save(factura);
     }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        facturaServicio.deleteById(id);
+    }
 }

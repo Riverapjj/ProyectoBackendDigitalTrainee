@@ -34,4 +34,9 @@ public class CategoriaController {
     public Categoria actualizar(@RequestBody Categoria categoria){
         return categoriaServicio.save(categoria);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        categoriaServicio.deleteById(id);
+    }
 }

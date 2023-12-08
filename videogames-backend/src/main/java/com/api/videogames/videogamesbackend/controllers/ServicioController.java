@@ -34,4 +34,8 @@ public class ServicioController {
     public Servicio actualizar(@RequestBody Servicio servicio){
         return servicioServicio.save(servicio);
     }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        servicioServicio.deleteById(id);
+    }
 }

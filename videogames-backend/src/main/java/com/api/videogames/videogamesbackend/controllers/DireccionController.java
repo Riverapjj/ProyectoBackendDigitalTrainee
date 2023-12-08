@@ -32,4 +32,9 @@ public class DireccionController {
     public Direccion actualizar(@RequestBody Direccion direccion){
         return direccionServicio.save(direccion);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        direccionServicio.deleteById(id);
+    }
 }

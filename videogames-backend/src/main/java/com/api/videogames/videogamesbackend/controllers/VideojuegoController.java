@@ -33,4 +33,9 @@ public class VideojuegoController {
     public Videojuego actualizar(@RequestBody Videojuego videojuego){
         return videojuegoServicio.save(videojuego);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        videojuegoServicio.deleteById(id);
+    }
 }

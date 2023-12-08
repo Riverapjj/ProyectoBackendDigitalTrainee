@@ -33,4 +33,8 @@ public class PlataformaController {
     public Plataforma actualizar(@RequestBody Plataforma plataforma){
         return plataformaServicio.save(plataforma);
     }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        plataformaServicio.deleteById(id);
+    }
 }

@@ -36,4 +36,9 @@ public class RolesController {
     public Roles actualizar(@RequestBody Roles roles){
         return rolesServicio.save(roles);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id){
+        rolesServicio.deleteById(id);
+    }
 }
